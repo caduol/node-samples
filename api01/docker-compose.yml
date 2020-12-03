@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  node-server:
+    image: node
+    build: .
+    command: npm start
+    volumes:
+      - .:/home/node/app
+    ports: 
+      - 3000:3000
+    
+  
