@@ -8,11 +8,13 @@ const app = express();
 
 // CONFIG
 // cors
-app.use(cors());
+// app.use(cors());
 
 // Template engine
 app.engine(".mustache", mustacheExpress());
 app.set("view engine", "mustache");
 app.set("views", "./src/app/views");
+
+//Routes
 
 export default app;

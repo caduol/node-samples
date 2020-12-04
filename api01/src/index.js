@@ -1,13 +1,9 @@
 import app from "./config/server";
-
-import getMessage from "./getMessage";
-
-const port = 3000;
-
 import home from "./app/router/home";
-home(app);
 import news from "./app/router/news";
-news(app);
+
+app.use("/", home);
+app.use("/news", news);
 
 // const mysql = require('mysql')
 
@@ -21,6 +17,6 @@ news(app);
 //     })
 // })
 
-app.listen(port, () => {
-  console.log(`Listening on ${port}`);
+app.listen(3000, () => {
+  console.log(`Listening on 3000`);
 });
