@@ -11,18 +11,6 @@ news(app);
 
 // const mysql = require('mysql')
 
-// const app = express();
-// const port = 3000
-
-// const connection = mysql.createConnection({
-//     host:'db',
-//     user:'root',
-//     password:'pwdapp',
-//     database:'dockerapi'
-// })
-
-// connection.connect();connection.connect();
-
 // app.get('/products', (req,res)=>{
 //     connection.query('select * from products', (error, results)=>{
 //         if(error){
