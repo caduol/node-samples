@@ -1,57 +1,38 @@
-import express from 'express'
-import path from 'path'
-import mustacheExpress from 'mustache-express'
-import getMessage from './getMessage'
+import app from "./config/server";
 
+import getMessage from "./getMessage";
 
-const app = express()
+const port = 3000;
 
-const port = 3000
+import home from "./app/router/home";
+home(app);
+import news from "./app/router/news";
+news(app);
 
-// CONFIG 
-    // Template engine
-    app.engine('.mustache', mustacheExpress())
-    app.set('view engine', 'mustache')
-    app.set('views', path.join(__dirname, '/views'))
+// const mysql = require('mysql')
 
+// const app = express();
+// const port = 3000
 
-app
-    .get('/', async (req,res)=> {
-       
-       let data = [
-           {name:"bulbasaur",experience: 64},
-           {name:"ivysaur",experience: 142},
-           {name:"charmander",experience: 62},
-           {name:"sandshrew",experience: 60},
-           {name:"persian",experience: 158},
-           
-        ]
+// const connection = mysql.createConnection({
+//     host:'db',
+//     user:'root',
+//     password:'pwdapp',
+//     database:'dockerapi'
+// })
 
-        res.render('home/index', {
-            data:data
-        })
-    })
+// connection.connect();connection.connect();
 
-    .get('/about', async (req,res)=>{
-        let data = [
-            {name:"Jiraya",type:'superhero'},
-            {name:"Changeman",type:'superhero'},
-            {name:"Flashman",type:'superhero'},
-            {name:"Black kamen Rider",type:'superhero'},
-            {name:"Kuwago",type:'moster'},
-            {name:"Ouwashi",type:'moster'},
-            {name:"Oninin Dokusai",type:'enemy'},
-            {name:"Kannin Dragon",type:'enemy'},
-            {name:"Wandar",type:'enemy'},
-            
-         ]
- 
-         res.render('about/index', {
-             data:data
-         })
-    })
+// app.get('/products', (req,res)=>{
+//     connection.query('select * from products', (error, results)=>{
+//         if(error){
+//             throw error
+//         }
 
+//         res.send(results.map(item => ({name: item.name, price: item.price})))
+//     })
+// })
 
-app.listen(port,()=>{
-    console.log(`Listening on ${port}`)
-})
+app.listen(port, () => {
+  console.log(`Listening on ${port}`);
+});
