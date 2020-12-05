@@ -2,7 +2,7 @@ import mysql from "mysql";
 
 // conexão com o banco
 
-export default function () {
+let mysqlconn = function () {
   let connection = mysql.createConnection({
     host: process.env.HOST,
     user: process.env.MYSQL_USER,
@@ -18,4 +18,6 @@ export default function () {
   });
 
   return connection;
-}
+};
+
+export default mysqlconn;
