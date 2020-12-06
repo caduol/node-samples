@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -31,6 +31,16 @@
             </tr>
             {{/data}}
         </table>
+
+        <form action="/news/save" method="post">
+        <label for="">News - title aí ação</label>
+        <input type="text" id="title" name="title" placeholder="Title news"/>
+        <br/>
+        <label for="">News - title</label>
+        <textarea type="text" id="news" name="news" rows="5" cols="30"></textarea>
+        <br/>
+        <input type="submit" value="Enviar">
+    </form>
     </div>
     
  
