@@ -1,6 +1,6 @@
-import app from "express";
+import { Router } from "express";
 
-let router = app.Router();
+let router = new Router();
 router.get("/", async (req, res) => {
   let data = [
     { name: "bulbasaur", experience: 64 },

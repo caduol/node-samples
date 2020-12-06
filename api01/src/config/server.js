@@ -8,23 +8,31 @@ import news from "../app/router/news";
 import compression from "compression";
 import bodyParser from "body-parser";
 
-const app = express();
+class Server {
+  constructor() {
+    this.app = express();
+    this.middlewares();
+    this.routes();
+  }
 
-// CONFIG
-// cors
-// app.use(cors());
-// compactação e performance
-app.use(compression());
-// bodyParser - extended: true -> permite o aninhamento de objetos (nested objects)
-app.use(express.urlencoded({ extended: true }));
-// Template engine
-app.engine(".mustache", mustacheExpress());
-app.set("view engine", "mustache");
-app.set("views", "./src/app/views");
+  middlewares() {
+    // CONFIG
+    this.app.use(compression());
+    // cors
+    this.app.use(cors());
+    // bodyParser - extended: true -> permite o aninhamento de objetos (nested objects)
+    this.app.use(express.urlencoded({ extended: true }));
 
-//Routes
+    //Template engine
+    this.app.engine(".mustache", mustacheExpress());
+    this.app.set("view engine", "mustache");
+    this.app.set("views", "./src/app/views");
+  }
 
-app.use("/", home);
-app.use("/news", news);
+  routes() {
+    this.app.use("/", home);
+    this.app.use("/news", news);
+  }
+}
 
-export default app;
+export default new Server().app;

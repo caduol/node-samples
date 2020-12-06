@@ -1,8 +1,8 @@
 import connectionDB from "../../config/connetionDB";
-import app from "express";
+import { Router } from "express";
 import newsModel from "../models/newsModel";
 
-let router = app.Router();
+let router = new Router();
 router
   .get("/", async (req, res) => {
     let connection = connectionDB();
@@ -23,13 +23,9 @@ router
     });
   })
   .get("/add", async (req, res) => {
-    let connection = connectionDB();
-
-    newsModel.getNews(connection, function (error, result) {
-      res.render("news/index", {
-        data: result,
-      });
-    });
+    // newsModel.getNews(connection, function (error, result) {
+    res.render("news/index");
+    // });
   })
   .post("/save", async (req, res) => {
     let news = req.body;
