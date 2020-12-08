@@ -14,10 +14,30 @@
 </head>
 
 <body>
-    {{#data}}
-    <li>{{name}} - {{type}}</li>
-    {{/data}}
-
+    <h1>Adicionar notícia</h1>
+    {{#error}}
+      <li>{{message}}</li>
+    {{/error}}
+     <form action="/news/save" method="post">
+     
+        <label for="">Titulo</label>
+        <input type="text" id="title" name="title" placeholder="Title da noticia"/>
+        
+        <br/>
+        <label for="">Resumo</label>
+        <input type="text" id="summary" name="summary" placeholder="Resumo da noticia"/>
+        <br/>
+        <label for="">Autor</label>
+        <input type="text" id="author" name="author" placeholder="Autor da noticia"/>
+        <br/>
+        <label for="">Data do ocorrido</label>
+        <input type="date" id="news_date" name="news_date" placeholder="Data da noticia"/>
+        <br/>
+        <textarea type="text" id="news" name="news" rows="5" cols="30"></textarea>
+        <br/>
+        <input type="submit" value="Enviar">
+     
+</form>
 
 </body>
 

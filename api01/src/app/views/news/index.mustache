@@ -19,27 +19,26 @@
     <div class="container">
         <table class="table">
             <tr>
-                <th>ID</th>
-                <th>Título</th>
-                <th>Noticias</th>
+                <th style="width:20%">Título</th>
+                <th style="width:30%">Noticias</th>
+                <th>Resumo</th>
+                <th>Autor</th>
+                <th>Data do ocorrido</th>
+                <th>Criado em:</th>
             </tr>
             {{#data}}
             <tr>
                 <td>{{title}}</td>
                 <td>{{news}}</td>
+                <td>{{sumary}}</td>
+                <td>{{author}}</td>
+                <td>{{news_date}}</td>
                 <td><small>{{createdAt}}</small></td>
             </tr>
             {{/data}}
         </table>
 
-        <form action="/news/save" method="post">
-        <label for="">News - title aí ação</label>
-        <input type="text" id="title" name="title" placeholder="Title news"/>
-        <br/>
-        <label for="">News - title</label>
-        <textarea type="text" id="news" name="news" rows="5" cols="30"></textarea>
-        <br/>
-        <input type="submit" value="Enviar">
+       
     </form>
     </div>
     
