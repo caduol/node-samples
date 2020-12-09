@@ -27,6 +27,7 @@ class Server {
     this.app.engine(".mustache", mustacheExpress());
     this.app.set("view engine", "mustache");
     this.app.set("views", "./src/app/views");
+    this.app.use(express.static("./src/app/public"));
   }
 
   routes() {
