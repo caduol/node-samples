@@ -26,6 +26,7 @@ class NewsController {
 
   async store(req, res) {
     let news = req.body;
+
     let newsSchema = Joi.object({
       title: Joi.string().min(2),
       summary: Joi.string().min(10).max(100).required(),
@@ -46,7 +47,6 @@ class NewsController {
     const { error, value } = newsSchema.validate(news, options);
 
     if (error) {
-      console.log(error.details);
       res.render("news/add_news", { error: error.details, news });
     } else {
       let connection = connectionDB();

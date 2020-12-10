@@ -3,10 +3,10 @@ import path from "path";
 import mustacheExpress from "mustache-express";
 import cors from "cors";
 import dotenv from "dotenv/config";
-import home from "../app/router/home";
-import news from "../app/router/news";
 import compression from "compression";
 import bodyParser from "body-parser";
+import home from "../app/router/home";
+import news from "../app/router/news";
 
 class Server {
   constructor() {
@@ -27,6 +27,7 @@ class Server {
     this.app.engine(".mustache", mustacheExpress());
     this.app.set("view engine", "mustache");
     this.app.set("views", "./src/app/views");
+    // Arquivos estaticos
     this.app.use(express.static(`./src/app/public`));
   }
 

@@ -15,8 +15,13 @@
             <div class="col-md-12">
 
                 <div class="card">
-                    <div class="card-header">
-                        autor: {{author}}
+                    <div class="card-header d-flex justify-content-between">
+                        <span>
+                            autor: {{author}}
+                        </span>
+                        <a href="/del/{{id_news}}" class="btn btn-danger ">
+                            Apagar
+                        </a>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><a href="/detail">{{title}}</a></h5>

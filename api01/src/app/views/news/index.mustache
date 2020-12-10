@@ -9,57 +9,26 @@
 
     {{> partials/nav}}
 
-    <main>
-
-        <section class="py-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 class="font-weight-light">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">Exemplo de álbum</font>
-                        </font>
-                    </h1>
-                    <p class="lead text-muted">
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">Algo curto e comandante sobre o grupo abaixo - seu
-                                conteúdo, criador, etc. </font>
-                            <font style="vertical-align: inherit;">Mantenha-o curto e bonito, mas não muito curto, para
-                                que as pessoas simplesmente não pulem este grupo completamente.</font>
-                        </font>
-                    </p>
-                    <p>
-                        <a href="#" class="btn btn-primary my-2">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">O principal apelo à ação</font>
-                            </font>
-                        </a>
-                        <a href="#" class="btn btn-secondary my-2">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">Trabalho secundário</font>
-                            </font>
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-
     <div class="container">
         {{#news}}
         <div class="row mt-2">
             <div class="col-md-12">
 
                 <div class="card">
-                    <div class="card-header">
-                        autor: {{author}}
+                    <div class="card-header d-flex justify-content-between">
+                        <span>
+                            autor: {{author}}
+                        </span>
+                        <a href="news/del/{{id_news}}" class="btn btn-danger ">
+                            Apagar
+                        </a>
                     </div>
                     <div class="card-body">
                         <h5 class="card-title"><a href="news/detail?id_news={{id_news}}">{{title}}</a></h5>
                         <p class="card-text">{{news}}</p>
                         <small class="text-muted">{{news_date}}</small>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -67,79 +36,6 @@
     </div>
 
 
-
-    {{!-- <footer class="text-muted py-5">
-        <div class="container">
-            <p class="float-end mb-1">
-                <a href="#">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">De volta ao topo</font>
-                    </font>
-                </a>
-            </p>
-            <p class="mb-1">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">O exemplo do álbum é © Bootstrap, mas faça o download e
-                        personalize-o para você!</font>
-                </font>
-            </p>
-            <p class="mb-0">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">Novo no Bootstrap? </font>
-                </font><a href="/">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">Visite a página inicial</font>
-                    </font>
-                </a>
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;"> ou leia nosso </font>
-                </font><a href="/docs/5.0/getting-started/introduction/ ">
-                    <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;">guia de primeiros passos</font>
-                    </font>
-                </a>
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;"> .</font>
-                </font>
-            </p>
-        </div>
-    </footer>
-
-
-    <div id="goog-gt-tt" class="skiptranslate" dir="ltr">
-        <div style="padding: 8px;">
-            <div>
-                <div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png"
-                        width="20" height="20" alt="Google Tradutor"></div>
-            </div>
-        </div>
-        <div class="top" style="padding: 8px; float: left; width: 100%;">
-            <h1 class="title gray">Texto original</h1>
-        </div>
-        <div class="middle" style="padding: 8px;">
-            <div class="original-text"></div>
-        </div>
-        <div class="bottom" style="padding: 8px;">
-            <div class="activity-links"><span class="activity-link">Sugerir uma tradução melhor</span><span
-                    class="activity-link"></span></div>
-            <div class="started-activity-container">
-                <hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;">
-                <div class="activity-root"></div>
-            </div>
-        </div>
-        <div class="status-message" style="display: none;"></div>
-    </div>
-
-
-
-
-    <div class="goog-te-spinner-pos">
-        <div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner"
-                width="96px" height="96px" viewBox="0 0 66 66">
-                <circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33"
-                    r="30"></circle>
-            </svg></div>
-    </div> --}}
 </body>
 
 </html>
