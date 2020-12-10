@@ -1,15 +1,13 @@
+import connectionDB from "../../config/connetionDB";
+import newsModel from "../models/newsModel";
 class HomeController {
   async index(req, res) {
-    let data = [
-      { name: "bulbasaur", experience: 64 },
-      { name: "ivysaur", experience: 142 },
-      { name: "charmander", experience: 62 },
-      { name: "sandshrew", experience: 60 },
-      { name: "persian", experience: 158 },
-    ];
+    let connection = connectionDB();
 
-    res.render("home/index", {
-      data: data,
+    newsModel.getLastNews(connection, (error, result) => {
+      res.render("home/index", {
+        news: result,
+      });
     });
   }
 }

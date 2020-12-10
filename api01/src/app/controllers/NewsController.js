@@ -7,7 +7,7 @@ class NewsController {
 
     newsModel.listNews(connection, function (error, result) {
       res.render("news/index", {
-        data: result,
+        news: result,
       });
     });
   }
@@ -15,8 +15,10 @@ class NewsController {
   async show(req, res) {
     let connection = connectionDB();
 
-    newsModel.getNews(connection, function (error, result) {
-      res.send({
+    let { id_news } = req.query;
+
+    newsModel.getOneNews(connection, id_news, function (error, result) {
+      res.render("news/get_one", {
         data: result,
       });
     });
@@ -44,11 +46,12 @@ class NewsController {
     const { error, value } = newsSchema.validate(news, options);
 
     if (error) {
+      console.log(error.details);
       res.render("news/add_news", { error: error.details, news });
     } else {
       let connection = connectionDB();
       newsModel.save(news, connection, function (error, result) {
-        res.redirect("/news");
+        res.redirect("/");
       });
     }
   }

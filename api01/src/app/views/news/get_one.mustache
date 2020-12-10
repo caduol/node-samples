@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    {{> partials/head/meta_scripts}}
+</head>
+
+<body>
+
+    {{> partials/nav}}
+
+    <div class="container">
+        {{#data}}
+        <div class="row mt-2">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-header">
+                        autor: {{author}}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="/detail">{{title}}</a></h5>
+                        <p class="card-text">{{news}}</p>
+                        <small class="text-muted">{{news_date}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/data}}
+    </div>
+
+</body>
+
+</html>

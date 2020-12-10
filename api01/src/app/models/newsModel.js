@@ -1,13 +1,20 @@
 // list all
 let listNews = function (connection, callback) {
-  connection.query("select * from news", callback);
+  connection.query("select * from news order by news_date desc", callback);
 };
 // get especific item
-let getNews = function (connection, callback) {
-  connection.query("select * from news where id_news = 2", callback);
+let getOneNews = function (connection, id_news, callback) {
+  connection.query(`select * from news where id_news = ${id_news}`, callback);
 };
 // save item
 let save = function (news, connection, callback) {
   connection.query("insert into news set ?", news, callback);
 };
-export default { listNews, getNews, save };
+
+let getLastNews = function (connection, callback) {
+  connection.query(
+    "select * from news order by news_date desc limit 6",
+    callback
+  );
+};
+export default { listNews, getOneNews, save, getLastNews };
