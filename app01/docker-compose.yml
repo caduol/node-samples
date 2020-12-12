@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7.16
+    restart: always
+    volumes:
+      - ./db/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+  node-server:
+    image: node
+    # build: .
+    command: bash -c "npm install && npm start"
+    volumes:
+      - .:/home/node/app
+    ports: 
+      - 3000:3000
+    depends_on: 
+    - db
+    
+  

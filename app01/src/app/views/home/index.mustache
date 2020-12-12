@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> partials/head/meta_scripts}}
+</head>
+
+<body>
+    {{> partials/nav}}
+
+    <main>     
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    {{#news}}
+                    <div class="col-md-4">
+                        <div class="card m-1">
+                            <img src="https://via.placeholder.com/40" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{title}}</h5>
+                                <p class="card-text"><small class="text-muted">Autor: {{author}} - {{news_date}}</small></p>
+                                <p class="card-text">{{summary}}</p>
+                                <a href="news/detail?id_news={{id_news}}" class="btn btn-sm btn-outline-secondary">Saiba Mais</a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary">Another link</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    {{/news}}
+                </div>
+                <div class="row">
+                    <a class="btn" href="/news">Todas as notícias</a>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
